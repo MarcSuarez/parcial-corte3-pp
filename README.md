@@ -69,15 +69,9 @@ rustc -O punto3/linear.rs -o punto3/linear
 4. Logger registra métricas y lee `pi_estimate` de PIWorker.
 5. PIWorker corre continuamente y publica estimados sin sincronizar con barrier.
 
-### Notas de diseño
-
-* Usar mini-batches para balancear latencia/uso CPU.
-* Separar lógica de PI en proceso/hilo independiente para evitar interferencia.
-* Implementar timeouts en barrier para tolerancia a fallos.
-
 **Diagrama (concurrencia + PI)**
 
-* imagen local: `/punto1/1. Diagrama de PP concurrencia y calculo PI.png`
+* imagen local: `![Diagrama del punto 1](/home/marc/vs_projects/USA/PP/Corte3/proyecto_final/punto1/1. Diagrama de PP concurrencia y calculo PI.png)`
 
 ---
 
@@ -111,7 +105,7 @@ rustc -O punto3/linear.rs -o punto3/linear
 
 **Diagrama (AOP)**
 
-* imagen local: `/punto2/2. Diagrama de POA.png`
+* imagen local: `![Diagrama del punto 2](/home/marc/vs_projects/USA/PP/Corte3/proyecto_final/punto2/2. Diagrama de POA.png)`
 
 ---
 
