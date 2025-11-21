@@ -77,7 +77,7 @@ rustc -O punto3/linear.rs -o punto3/linear
 
 **Diagrama (concurrencia + PI)**
 
-* imagen local: `<img width="775" height="386" alt="image" src="https://github.com/user-attachments/assets/04ffab65-f80b-477a-ae7a-e5ede943fe57" />`
+* imagen local: `img width="775" height="386" alt="image" src="https://github.com/user-attachments/assets/4a5aa73c-bb57-4055-8983-226b4cae7d83" /`
 
 ---
 
