@@ -71,7 +71,8 @@ rustc -O punto3/linear.rs -o punto3/linear
 
 **Diagrama (concurrencia + PI)**
 
-* imagen local: `![Diagrama del punto 1](/home/marc/vs_projects/USA/PP/Corte3/proyecto_final/punto1/1. Diagrama de PP concurrencia y calculo PI.png)`
+* Imagen (diagrama de concurrencia + cálculo de π):
+  ![Diagrama Punto 1](punto1/Diagrama_PP_concurrencia_y_calculo_PI.png)
 
 ---
 
@@ -105,7 +106,8 @@ rustc -O punto3/linear.rs -o punto3/linear
 
 **Diagrama (AOP)**
 
-* imagen local: `![Diagrama del punto 2](/home/marc/vs_projects/USA/PP/Corte3/proyecto_final/punto2/2. Diagrama de POA.png)`
+* Imagen (diagrama AOP / aspectos):
+  ![Diagrama Punto 2](punto2/Diagrama_POA.png)
 
 ---
 
@@ -116,7 +118,7 @@ rustc -O punto3/linear.rs -o punto3/linear
 * **Python**: `punto3/bench_py.py` (GD puro con numpy vectorizado). Mide tiempo con `time.perf_counter()`, memoria con `tracemalloc` y `resource.getrusage()`.
 * **Rust**: `punto3/linear.rs` (GD puro con loops explícitos). Mide tiempo con `Instant::now()` y RSS leyendo `/proc/self/status` (VmRSS).
 
-## Resultados obtenidos (medidos por usted)
+## Resultados obtenidos
 
 * **Python**
 
@@ -147,8 +149,3 @@ rustc -O punto3/linear.rs -o punto3/linear
   * Mide tiempo con `Instant::now()` y lee `/proc/self/status` para `VmRSS`.
 
 ---
-
-# Archivos visuales (diagramas)
-
-* Concurrencia + cálculo PI: `/mnt/data/1. Diagrama de PP concurrencia y calculo PI.png`
-* AOP (Aspectos): `/mnt/data/2. Diagrama de POA.png`
