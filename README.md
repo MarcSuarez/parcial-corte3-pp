@@ -77,7 +77,7 @@ rustc -O punto3/linear.rs -o punto3/linear
 
 **Diagrama (concurrencia + PI)**
 
-* imagen local: `/mnt/data/1. Diagrama de PP concurrencia y calculo PI.png`
+* imagen local: `/punto1/1. Diagrama de PP concurrencia y calculo PI.png`
 
 ---
 
@@ -111,7 +111,7 @@ rustc -O punto3/linear.rs -o punto3/linear
 
 **Diagrama (AOP)**
 
-* imagen local: `/mnt/data/2. Diagrama de POA.png`
+* imagen local: `/punto2/2. Diagrama de POA.png`
 
 ---
 
@@ -127,25 +127,18 @@ rustc -O punto3/linear.rs -o punto3/linear
 * **Python**
 
   * `time_s`: **0.044686 s**
-  * `tracemalloc_peak_kb`: **1 KB** (solo seguimiento de allocs Python)
-  * `ru_maxrss_kb`: **52672 KB** (≈ 52 MB, RSS del proceso)
+  * `tracemalloc_peak_kb`: **1 KB**
+  * `ru_maxrss_kb`: **52672 KB**
 
 * **Rust**
 
   * `time_s`: **0.002050 s**
-  * `rss_kb`: **2228 KB** (≈ 2.2 MB, RSS del binario)
+  * `rss_kb`: **2228 KB**
 
 ## Interpretación concisa
 
 * **Tiempo**: Rust es ~22× más rápido en este microbenchmark. Explicación: Rust compila a código nativo optimizado; el bucle numérico está en código máquina. Python tiene sobrecosto del intérprete y gestión de arrays/objetos, aun cuando numpy delega operaciones a C; en su caso la implementación hace uso de numpy pero sigue habiendo overhead en la llamada/loop.
 * **Memoria**: `tracemalloc` mide solo asignaciones rastreadas por Python (muy pequeñas). `ru_maxrss` reporta el RSS completo del proceso — incluye intérprete, librerías, arenas de allocator. Rust produce un binario pequeño sin VM y con menor RSS.
-
-## Limitaciones y notas metodológicas
-
-* **Dataset pequeño**: con 5 elementos, overhead domina; para comparaciones fiables usar N grande (p. ej. 1e6). Microbenchmarks en tamaños pequeños amplifican impacto del runtime.
-* **Métricas no homogéneas**: tracemalloc vs VmRSS vs ru_maxrss no son directamente comparables; use la misma técnica en ambos (p. ej. `psutil.Process().memory_info().rss`).
-* **Compilar Rust en release**: usar `cargo build --release` o `rustc -C opt-level=3` para mediciones reales.
-* **Repetir ejecuciones** y tomar medianas para mitigar ruido.
 
 ## Explicación breve del código
 
@@ -159,27 +152,9 @@ rustc -O punto3/linear.rs -o punto3/linear
   * Define vectores `x,y`, variables `w,b`, y un loop por `epochs` con acumuladores `dw,db` calculados manualmente (loop sobre índices).
   * Mide tiempo con `Instant::now()` y lee `/proc/self/status` para `VmRSS`.
 
-## Recomendaciones para un benchmark serio
-
-1. Escalar `N` a 1e6 o más (generar arrays aleatorios).
-2. Eliminar `println!`/`print` dentro del bucle (imprime destruye performance).
-3. Ejecutar 5–10 repeticiones y guardar medianas.
-4. Medir RSS con la misma técnica (usar `psutil` o `/proc` en ambos).
-5. Compilar Rust en modo release.
-
 ---
 
 # Archivos visuales (diagramas)
 
 * Concurrencia + cálculo PI: `/mnt/data/1. Diagrama de PP concurrencia y calculo PI.png`
 * AOP (Aspectos): `/mnt/data/2. Diagrama de POA.png`
-
----
-
-Si quieres, dejo en este lienzo (documento) también:
-
-* el PlantUML reducido de AOP (listo para pegar),
-* la versión minimalista del diagrama de concurrencia en PlantUML,
-* un script para correr benchmarks a N grande y recoger medianas.
-
-Dime cuál de esos 3 quieres que agregue ahora y lo inserto en el lienzo.
