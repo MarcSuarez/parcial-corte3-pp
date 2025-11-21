@@ -77,7 +77,7 @@ rustc -O punto3/linear.rs -o punto3/linear
 
 **Diagrama (concurrencia + PI)**
 
-* imagen local: `img width="775" height="386" alt="image" src="https://github.com/user-attachments/assets/4a5aa73c-bb57-4055-8983-226b4cae7d83" /`
+* imagen local: `![Diagrama del punto 1](/home/marc/vs_projects/USA/PP/Corte3/proyecto_final/punto1/1. Diagrama de PP concurrencia y calculo PI.png)`
 
 ---
 
@@ -111,8 +111,7 @@ rustc -O punto3/linear.rs -o punto3/linear
 
 **Diagrama (AOP)**
 
-* imagen local: `<img width="2259" height="625" alt="image" src="https://github.com/user-attachments/assets/fedcd1d3-fc1f-4b64-ac8f-6f0023600236" />
-`
+* imagen local: `![Diagrama del punto 2](/home/marc/vs_projects/USA/PP/Corte3/proyecto_final/punto2/2. Diagrama de POA.png)`
 
 ---
 
