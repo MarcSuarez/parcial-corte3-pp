@@ -6,11 +6,17 @@
 
 * **Sistema**: Linux (probado en distribuciones modernas).
 * **Python**: Python 3.8+ instalado.
-* **Rust**: `rustc`/`cargo` si se desea compilar con Cargo.
+# Parcial Corte 3 — Paradigmas de Programación
 
-## Instalación del entorno
+## Prerrequisitos
 
-Se recomienda crear un entorno virtual para Python e instalar dependencias:
+- Sistema: Linux.
+- Python 3.8 o superior.
+- Rust (`rustc`/`cargo`) para compilar y ejecutar el ejemplo en Rust (opcional).
+
+## Instalación
+
+Se recomienda crear un entorno virtual e instalar las dependencias de Python:
 
 ```bash
 python3 -m venv .venv
@@ -19,21 +25,21 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-(O altern.)
+Si `requirements.txt` no está disponible, instale al menos `numpy`:
 
 ```bash
-pip install -m requirements.txt
+pip install numpy
 ```
 
-## Cómo ejecutar los ejemplos
+## Ejecución de ejemplos
 
-* Ejecutar Python (Punto 3 - benchmark):
+- Ejecutar benchmark Python:
 
 ```bash
 python3 punto3/bench_py.py
 ```
 
-* Compilar y ejecutar el ejemplo en Rust (archivo único `linear.rs`):
+- Compilar y ejecutar el ejemplo en Rust (sin Cargo):
 
 ```bash
 rustc -O punto3/linear.rs -o punto3/linear
@@ -71,8 +77,7 @@ rustc -O punto3/linear.rs -o punto3/linear
 
 **Diagrama (concurrencia + PI)**
 
-* Imagen (diagrama de concurrencia + cálculo de π):
-  ![Diagrama Punto 1](punto1/Diagrama_PP_concurrencia_y_calculo_PI.png)
+![Diagrama Punto 1](punto1/1.%20Diagrama_PP_concurrencia_y_calculo_PI.png)
 
 ---
 
@@ -106,8 +111,7 @@ rustc -O punto3/linear.rs -o punto3/linear
 
 **Diagrama (AOP)**
 
-* Imagen (diagrama AOP / aspectos):
-  ![Diagrama Punto 2](punto2/Diagrama_POA.png)
+![Diagrama Punto 2](punto2/2.%20Diagrama_POA.png)
 
 ---
 
